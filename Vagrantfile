@@ -12,6 +12,13 @@ Vagrant.configure("2") do |config|
     libvirt.cpus = 4
   end
 
+  config.vbguest.auto_update = false
+
+  config.vm.provider :virtualbox do |vb|
+      vb.memory = 4096
+      vb.cpus = 2
+  end
+
   config.vm.provision "shell", inline: <<-SHELL
     # Configure dnf repo for vanilla kernel
     curl -s https://repos.fedorapeople.org/repos/thl/kernel-vanilla.repo | \
@@ -20,7 +27,7 @@ Vagrant.configure("2") do |config|
     # Install latest vanilla kernel
     dnf update -y kernel-core
     # Install development tools
-    dnf install -y clang gcc make elfutils-libelf-devel llvm nmap-ncat
+    dnf install -y clang gcc make elfutils-libelf-devel llvm nmap nmap-ncat
     # Reboot into new kernel
     reboot
   SHELL

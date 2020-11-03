@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 # Copyright (c) 2020 Cloudflare
 
-KERNEL := linux-5.9.1
+KERNEL := linux-5.9.3
 KERNEL_INC := $(KERNEL)/usr/include
 LIBBPF_INC := $(KERNEL)/tools/lib
 LIBBPF_LIB := $(KERNL)/tools/lib/bpf/libbpf.a

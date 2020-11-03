@@ -31,6 +31,10 @@ vm $ make
 ## Start the echo server and test it
 
 ```
+# -e, --exec <command>       Executes the given command
+# -l, --listen               Bind and listen for incoming connections
+# -k, --keep-open            Accept multiple connections in listen mode
+#
 vm $ nc -4kle /bin/cat 127.0.0.1 7777 &
 [1] 24533
 $ ss -4tlpn sport = 7777
